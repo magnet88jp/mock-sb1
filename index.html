@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap 101 Template</title>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/sticky-footer-navbar.css" rel="stylesheet">
+    
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+
+    <script src="js/angular.min.js"></script>
+    <script src="js/angular-ui-router.min.js"></script>
+    <script src="js/ui-bootstrap-tpls-0.11.0.min.js"></script>
+    <script src="js/index-controller.js"></script>
+
+  </head>
+  <body ng-app="app">
+    
+    <!-- Fixed navbar -->
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Sfdc enquete</a>
+        </div>
+        <div class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Settings <span class="caret"></span></a>
+              <ul class="dropdown-menu" role="menu">
+                <li><a href="#">Action</a></li>
+                <li><a href="#">Another action</a></li>
+                <li><a href="#">Something else here</a></li>
+                <li class="divider"></li>
+                <li class="dropdown-header">Nav header</li>
+                <li><a href="#">Separated link</a></li>
+                <li><a href="#">One more separated link</a></li>
+              </ul>
+            </li>
+          </ul>
+          <form class="navbar-form navbar-right" role="search">
+            <div class="form-group">
+              <input type="text" class="form-control" placeholder="Search">
+            </div>
+            <button type="submit" class="btn btn-default">Submit</button>
+          </form>
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+
+    <!-- Begin page content -->
+    <div class="container">
+      <ol class="breadcrumb">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Library</a></li>
+        <li class="active">Data</li>
+      </ol>
+      <div class="page-header">
+        <h1>Sticky footer with fixed navbar <small>Subtext for header</small></h1>
+      </div>
+      <p class="lead">Pin a fixed-height footer to the bottom of the viewport in desktop browsers with this custom HTML and CSS. A fixed navbar has been added with <code>padding-top: 60px;</code> on the <code>body > .container</code>.</p>
+      <p>Back to <a href="../sticky-footer">the default sticky footer</a> minus the navbar.</p>
+
+    <div class="row">
+      <div class="col-md-4">
+
+<div ng-controller="AccordionDemoCtrl">
+  <p>
+    <button class="btn btn-default btn-sm" ng-click="status.open = !status.open">Toggle last panel</button>
+    <button class="btn btn-default btn-sm" ng-click="status.isFirstDisabled = ! status.isFirstDisabled">Enable / Disable first panel</button>
+  </p>
+
+  <label class="checkbox">
+    <input type="checkbox" ng-model="oneAtATime">
+    Open only one at a time
+  </label>
+  <accordion close-others="oneAtATime">
+    <accordion-group heading="Static Header, initially expanded" is-open="status.isFirstOpen" is-disabled="status.isFirstDisabled">
+      This content is straight in the template.
+    </accordion-group>
+    <accordion-group heading="{{group.title}}" ng-repeat="group in groups">
+      {{group.content}}
+    </accordion-group>
+    <accordion-group heading="Dynamic Body Content">
+      <p>The body of the accordion group grows to fit the contents</p>
+        <button class="btn btn-default btn-sm" ng-click="addItem()">Add Item</button>
+        <div ng-repeat="item in items">{{item}}</div>
+    </accordion-group>
+    <accordion-group is-open="status.open">
+        <accordion-heading>
+            I can have markup, too! <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.open, 'glyphicon-chevron-right': !status.open}"></i>
+        </accordion-heading>
+        This is just some content to illustrate fancy headings.
+    </accordion-group>
+  </accordion>
+</div><!-- ng-controller -->
+
+
+<div class="list-group">
+  <a href="#" class="list-group-item active">
+    Cras justo odio
+  </a>
+  <a href="#" class="list-group-item">Dapibus ac facilisis in</a>
+  <a href="#" class="list-group-item">Morbi leo risus</a>
+  <a href="#" class="list-group-item">Porta ac consectetur ac</a>
+  <a href="#" class="list-group-item">Vestibulum at eros</a>
+</div>      
+      </div><!-- div.col-md-4 -->
+
+      <div class="col-md-8">
+
+        <!-- Bootstrap test from here -->
+<form role="form">
+  <div class="alert alert-danger" role="alert">Oh snap! Change a few things up and try submitting again.</div>
+
+  <div class="form-group">
+    <label for="exampleInputEmail1">テキスト型設問１</label>
+    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="テキスト型設問１">
+  </div>
+  <div class="form-group has-success has-feedback">
+    <label for="exampleInputEmail1">テキスト型設問１（成功）</label>
+    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="テキスト型設問１（成功）">
+    <span class="glyphicon glyphicon-ok form-control-feedback"></span>
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">パスワード型設問１</label>
+    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="パスワード型設問１">
+  </div>
+  <div class="form-group">
+    <label for="exampleInputEmail1">テキストエリア型設問１</label>
+    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="テキストエリア型設問１">
+  </div>
+  <div class="form-group">
+    <label for="exampleInputEmail1">単一チェックボックス型設問１</label>
+    <div class="checkbox">
+      <label>
+        <input type="checkbox"> 単一チェックボックス型設問１－１
+      </label>
+      <label>
+        <input type="checkbox"> 単一チェックボックス型設問１－２
+      </label>
+      <label>
+        <input type="checkbox"> 単一チェックボックス型設問１－３
+      </label>
+    </div>
+    <div class="checkbox">
+      <label>
+        <input type="checkbox"> 単一チェックボックス型設問１－４
+      </label>
+    </div>
+  </div>
+  <div class="form-group  has-error has-feedback">
+    <label for="exampleInputEmail1">単一チェックボックス型設問１（失敗）</label>
+    <div class="checkbox">
+      <label>
+        <input type="checkbox"> 単一チェックボックス型設問１－１
+      </label>
+      <label>
+        <input type="checkbox"> 単一チェックボックス型設問１－２
+      </label>
+      <label>
+        <input type="checkbox"> 単一チェックボックス型設問１－３
+      </label>
+    </div>
+    <div class="checkbox">
+      <label>
+        <input type="checkbox"> 単一チェックボックス型設問１－４
+      </label>
+    </div>
+    <span class="glyphicon glyphicon-remove form-control-feedback"></span>
+  </div>
+  <div class="form-group">
+    <label for="exampleInputEmail1">ラジオボタン型設問１</label>
+<div class="radio">
+  <label>
+    <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+    ラジオボタン型設問１－１
+  </label>
+  <label>
+    <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+    ラジオボタン型設問１－２
+  </label>
+  <label>
+    <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+    ラジオボタン型設問１－３
+  </label>
+</div>
+<div class="radio disabled">
+  <label>
+    <input type="radio" name="optionsRadios" id="optionsRadios3" value="option3" disabled>
+    ラジオボタン型設問１－４
+  </label>
+</div>
+
+  </div>
+
+  <div class="form-group">
+    <label for="exampleInputEmail1">複数選択型設問１</label>
+    <select multiple class="form-control">
+      <option>1</option>
+      <option>2</option>
+      <option>3</option>
+      <option>4</option>
+      <option>5</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label>Email</label>
+    <p class="form-control-static">email@example.com</p>
+  </div>
+    
+  <div class="form-group">
+    <label for="exampleInputFile">ファイル型設問１</label>
+    <input type="file" id="exampleInputFile">
+    <p class="help-block">Example block-level help text here.</p>
+  </div>
+  <div>
+  <button type="submit" class="btn btn-default">Submit</button>
+  <!-- Standard button -->
+  <button type="button" class="btn btn-default">Default</button>
+  
+  <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
+  <button type="button" class="btn btn-primary">Primary</button>
+  </div>
+
+<button type="button" class="btn btn-default">
+  <span class="glyphicon glyphicon-star"></span> Star
+</button>
+  
+<div class="row">
+  <div class="col-sm-6 col-md-4">
+    <div class="thumbnail">
+      <img data-src="holder.js/300x300" alt="...">
+      <div class="caption">
+        <h3>Thumbnail label</h3>
+        <p>...</p>
+        <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+      </div>
+    </div>
+  </div>
+</div>
+  
+<div class="col-md-4">
+<button type="button" class="btn btn-primary btn-lg btn-block">Block level button</button>
+<button type="button" class="btn btn-default btn-lg btn-block">Block level button</button>
+</div>
+
+<div class="clearfix">...</div>
+
+<div class="panel panel-default">
+  <!-- Default panel contents -->
+  <div class="panel-heading">Panel heading</div>
+  <div class="panel-body">
+    <p>...</p>
+  </div>
+
+  <!-- Table -->
+  <table class="table">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Username</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td>Mark</td>
+        <td>Otto</td>
+        <td>@mdo</td>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td>Mark</td>
+        <td>Otto</td>
+        <td>@mdo</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+</form>
+        <!-- Bootstrap test until this -->
+
+      </div><!-- div.col-md-8 -->
+    </div><!-- div.row -->
+
+
+    </div>
+
+    <div class="footer">
+      <div class="container">
+        <p class="text-muted">Place sticky footer content here.</p>
+      </div>
+    </div>
+    
+        
+  </body>
+</html>
